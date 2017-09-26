@@ -4,6 +4,8 @@
  */
 package javareview;
 
+import java.util.Arrays;
+
 /**
  *
  * @author stahc1596
@@ -37,9 +39,68 @@ public class SortingSearching {
         while(swap){
             swap = false;
             //look for swaps
-            for(int i = 0; i < last; i++){
-            
+            for(int i = 0; i < last - 1; i++){
+                //Find a bigger value?
+                if(array[i] > array[i+1]){
+                    //swap
+                    swap(array, i, i+1);
+                    //set flag to true
+                    swap = true;
+                }
+            }
+            //Move the last position tracker
+            last--;
         }
+    }
+    
+    public void insertionSort(int[] array){
+        //Start going through the array
+        for(int i = 0; i < array.length - 1; i++){
+            //Store position
+            int position = i;
+            //Check values beside each other
+            while(position >= 0 && array[position] > array[position + 1]){
+                //if out of place, start swaping down
+                //until correct position is reached
+                swap(array, position, position + 1);
+                position--;
+            }
+        }
+    }
+    public void mergeSort(int[] array){
+        //If we are 1 item, done sorting
+        if(array.length <= 1){
+            return;
+        }
+        //divide into two arrays
+        int split = array.length / 2;
+        //create two arrays
+        int[] front = Arrays.copyOfRange(array, 0, split);
+        int[] back = Arrays.copyOfRange(array, split, array.length);
+        
+        //Recursively sort
+        mergeSort(front);
+        mergeSort(back);
+        
+        //Put numbers in correct spot
+        //Keeping track of where we are
+        int fSpot = 0;
+        int bSpot = 0;
+        for(int i = 0; i < array.length; i++){
+            //No more items in front array
+            if(fSpot == front.length){
+                array[i] = back[bSpot];
+                bSpot++;
+            }else if(bSpot == back.length){
+                array[i] = front[fSpot];
+                fSpot++;
+            }else if(front[fSpot] < back[bSpot]){
+                array[i] = front[fSpot];
+                fSpot++;
+            }else{
+                array[i] = back[bSpot];
+                bSpot++;
+            }
         }
     }
     public static void main(String[] args) {
@@ -49,11 +110,14 @@ public class SortingSearching {
             //makes a random number
             numbers[i] = (int)(Math.random()*101);
         }
+        //Before
         System.out.println("BEFORE: ");
         for(int i = 0; i < numbers.length; i++){
             System.out.println(numbers[i]);
         }
-        test.selectionSort(numbers);
+        //Type of sort
+        test.mergeSort(numbers);
+        //After
         System.out.println("AFTER: ");
         for(int i = 0; i < numbers.length; i++){
             System.out.println(numbers[i]);
