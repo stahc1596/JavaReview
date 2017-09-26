@@ -103,6 +103,15 @@ public class SortingSearching {
             }
         }
     }
+    
+    public int sequentialSearch(int[] array, int number){
+        for(int i = 0; i < array.length; i ++){
+            if(array[i] == number){
+                return 1;
+            }
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         SortingSearching test = new SortingSearching();
         int[] numbers = new int[10];
