@@ -112,9 +112,25 @@ public class SortingSearching {
         }
         return -1;
     }
+    public int binarySearch(int[] array, int target){
+        int min = 0;
+        int max = array.length - 1;
+        while(max > min){
+            int guess = (max+min)/2;
+            if(array[guess] == target){
+                return guess;
+            }else if(target > array[guess]){
+                min = guess + 1;
+            }else{
+                max = guess - 1;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         SortingSearching test = new SortingSearching();
-        int[] numbers = new int[10];
+        int[] numbers = new int[20];
         for(int i = 0; i < numbers.length; i++){
             //makes a random number
             numbers[i] = (int)(Math.random()*101);
@@ -131,5 +147,7 @@ public class SortingSearching {
         for(int i = 0; i < numbers.length; i++){
             System.out.println(numbers[i]);
         }
+        
+        System.out.println(test.binarySearch(numbers, 51));
     }
 }
