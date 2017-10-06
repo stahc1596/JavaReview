@@ -14,10 +14,7 @@ public class TestFile {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        String s = "Radar";
-        System.out.println(s.length());
-        System.out.println(s.charAt(s.length() - 1));
-        String n = "123";
+        int[] test = new int[10];
+        System.out.println(test[1]);
     }
 }
