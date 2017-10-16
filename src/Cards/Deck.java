@@ -15,6 +15,37 @@ public class Deck {
     private boolean isShuffled;
     
     public Deck(){
+        reset();
+    }
+    
+    public void shuffle(){
+        //Knuth shuffle algorithm
+        for(int i = 0; i < numCards; i++){
+            //Generate random spot to swap with
+            int spot = (int)(Math.random()*(numCards - i) + i);
+            Card temp = cards[i];
+            cards[i] = cards[spot];
+            cards[spot] = temp;
+        }
+        //Set shuffled to true
+        isShuffled = true;
+    }
+    
+    public boolean isShuffled(){
+        return this.isShuffled;
+    }
+    
+    public int getNumberCardsLeft(){
+        return this.numCards;
+    }
+    
+    public Card dealCard(){
+        this.numCards--;
+        //Deal out a card
+        return this.cards[this.numCards];
+    }
+    
+    public void reset(){
         this.numCards = 52;
         this.isShuffled = false;
         
@@ -28,14 +59,9 @@ public class Deck {
         }
     }
     
-    public void shuffle(){
-        //Knuth shuffle algorithm
-        for(int i = 0; i < numCards; i++){
-            //Generate random spot to swap with
-            int spot = (int)(Math.random()*(numCards - 1) + i);
-            Card temp = cards[i];
-            cards[i] = cards[spot];
-            cards[spot] = temp;
+    public void printDeck(){
+        for(int i = numCards-1; i >= 0; i--){
+            System.out.println(cards[i]);
         }
     }
 }
