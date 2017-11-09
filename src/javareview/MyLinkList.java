@@ -124,5 +124,7 @@ public class MyLinkList {
         for(int i = 0; i < list.size(); i++){
             System.out.println(list.get(i));
         }
+        list.remove(0);
+        System.out.println("First: " + list.get(0));
     }
 }
