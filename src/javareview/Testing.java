@@ -8,7 +8,7 @@ package javareview;
  *
  * @author stahc1596
  */
-public class TestFile {
+public class Testing {
 
     /**
      * @param args the command line arguments
