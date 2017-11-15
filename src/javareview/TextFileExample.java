@@ -22,8 +22,8 @@ public class TextFileExample {
         FileReader file = null;
         try{
             //To fix
-            URL url = ClassLoader.getSystemClassLoader().getResource("input.txt");
-            
+            URL url = TextFileExample.class.getResource("input.txt");
+            System.out.println(url);
             //Creating the file reader
             file = new FileReader("input.txt");
         }catch(Exception e){
@@ -57,3 +57,4 @@ public class TextFileExample {
         }
     }
 }
+//test
