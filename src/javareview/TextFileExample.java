@@ -21,9 +21,6 @@ public class TextFileExample {
         //Create a blank file reader
         FileReader file = null;
         try{
-            //To fix
-            URL url = TextFileExample.class.getResource("input.txt");
-            System.out.println(url);
             //Creating the file reader
             file = new FileReader("input.txt");
         }catch(Exception e){
