@@ -5,7 +5,6 @@
 package javareview;
 
 import java.io.FileReader;
-import java.net.URL;
 import java.util.Scanner;
 
 /**
