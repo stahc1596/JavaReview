@@ -19,4 +19,15 @@ public class Dog extends Pet{
         System.out.println("WOOF!");
     }
     
+    public void howl(){
+        System.out.println("HOWL!");
+    }
+    
+    @Override
+    public String toString(){
+        String fromPet = super.toString();
+        fromPet += "Type: Dog";
+        return fromPet;
+    }
+    
 }

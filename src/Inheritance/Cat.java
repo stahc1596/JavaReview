@@ -10,8 +10,11 @@ package Inheritance;
  */
 public class Cat extends Pet{
 
+    private int lives;
+    
     public Cat(String name, int age, String breed, String colour){
         super(name, age, breed, colour);
+        this.lives = 9;
     }
     
     @Override
@@ -19,4 +22,11 @@ public class Cat extends Pet{
         System.out.println("MEOW!");
     }
     
+    @Override
+    public String toString(){
+        String fromPet = super.toString();
+        fromPet += "Lives: " + this.lives;
+        fromPet += "Type: Cat";
+        return fromPet;
+    }
 }

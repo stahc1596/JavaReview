@@ -32,7 +32,7 @@ public abstract class Pet {
         output += "Name: " + this.name + "\n";
         output += "Age: " + this.age + "\n";
         output += "Breed: " + this.breed + "\n";
-        output += "Colour: " + this.colour;
+        output += "Colour: " + this.colour + "\n";
         return output;
     }
     

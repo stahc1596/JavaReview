@@ -23,13 +23,21 @@ public class TestAnimals {
         
         System.out.println(fido);
         
-        Pet[] p = new Dog[3];
+        fido.howl();
+        
+        Pet[] p = new Pet[3];
         p[0] = fido;
         p[1] = whiskers;
         p[2] = cuddles;
         
         for(int i = 0; i < 3; i++){
-            p[i].speak();
+            System.out.println(p[i]);
+            if(p[i] instanceof Dog){
+                Dog tempDog = (Dog)p[i];
+                tempDog.howl();
+            }else{
+                p[i].speak();
+            }
         }
     }
 }
